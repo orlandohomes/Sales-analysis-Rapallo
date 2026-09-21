@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Análise de Venda: 11410 Rapallo Lane, Windermere FL 34786</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#F5F7F6;--paper:#FFFFFF;--ink:#1E2B33;--muted:#5B6970;--rule:#D9DFDD;--lake:#2C6A70;--lake-soft:#DCEBEA;
+--sold:#4E7A58;--pending:#BF8A2F;--active:#8494A0;--subj:#1E2B33;--band:rgba(44,106,112,.14);--warn:#8A4B2A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12191D;--paper:#1A2328;--ink:#E7ECEA;--muted:#9BA9AF;--rule:#2F3B41;--lake:#6FB3B8;--lake-soft:#1F3A3D;--sold:#7FB38A;--pending:#E0B25A;--active:#93A3AE;--subj:#F2F4F3;--band:rgba(111,179,184,.18);--warn:#E0A07C}}
+:root[data-theme="dark"]{--bg:#12191D;--paper:#1A2328;--ink:#E7ECEA;--muted:#9BA9AF;--rule:#2F3B41;--lake:#6FB3B8;--lake-soft:#1F3A3D;--sold:#7FB38A;--pending:#E0B25A;--active:#93A3AE;--subj:#F2F4F3;--band:rgba(111,179,184,.18);--warn:#E0A07C}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px 72px}
+h1,h2,h3,h4{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:500;line-height:1.2;margin:0}
+h2{font-size:1.9rem;margin:0 0 .4rem}
+h3{font-size:1.25rem;margin:1.6rem 0 .5rem}
+h4{font-size:1.15rem}
+p{margin:.5rem 0 1rem;max-width:72ch}
+section{padding:44px 0;border-top:1px solid var(--rule)}
+.lede{color:var(--muted);max-width:68ch}
+header .who{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:.9rem;margin-bottom:40px}
+header h1{font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.01em}
+header .sub{font-size:1.1rem;color:var(--muted);margin:.5rem 0 2rem}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);background:var(--paper)}
+.verdict>div{padding:24px 26px}
+.verdict>div+div{border-left:1px solid var(--rule)}
+.verdict .fig{font-family:"Newsreader",Georgia,serif;font-size:2.6rem;line-height:1.1}
+.verdict .now .fig{color:var(--warn)}
+.verdict .rec{background:var(--lake-soft)}
+.verdict .rec .fig{color:var(--lake)}
+.verdict p{margin:.4rem 0 0;color:var(--muted);font-size:.95rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:1rem}
+.facts div{background:var(--paper);padding:12px 14px}
+.facts b{display:block;font-weight:600}
+.facts span{color:var(--muted);font-size:.85rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--rule);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top;white-space:nowrap}
+th{font-weight:600;color:var(--muted);background:var(--bg)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.addr{white-space:normal;min-width:190px;font-weight:500}
+td.addr small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+tr.subj td{background:var(--lake-soft)}
+.st{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.78rem;font-weight:600;color:#fff}
+.st-sold{background:var(--sold)}.st-pending{background:var(--pending)}.st-active,.st-subject{background:var(--active)}
+tr.subj .st{background:var(--subj);color:var(--bg)}
+.chart{width:100%;height:auto;display:block;font-family:"Public Sans",system-ui,sans-serif}
+.chartbox{border:1px solid var(--rule);background:var(--paper);padding:16px;overflow-x:auto}
+.chartbox svg{min-width:560px}
+.grid{stroke:var(--rule);stroke-width:1}
+.tick{fill:var(--muted);font-size:11px}
+.lbl{fill:var(--ink);font-size:12px}
+.val{fill:var(--muted);font-size:12px}
+.strong{fill:var(--ink);font-weight:700}
+.bar.b-sold{fill:var(--sold)}.bar.b-pending{fill:var(--pending)}.bar.b-active{fill:var(--active)}.bar.b-subject{fill:var(--warn)}
+.brk{stroke:var(--paper);stroke-width:4}
+.med{stroke:var(--lake);stroke-width:2;stroke-dasharray:4 3}
+.pt{stroke:var(--paper);stroke-width:1.5}
+.p-sold{fill:var(--sold)}.p-pending{fill:var(--pending)}.p-active{fill:var(--active)}.p-subject{fill:var(--warn)}
+.p-rec{fill:var(--lake)}
+.poolring{fill:none;stroke:var(--lake);stroke-width:1.5;stroke-dasharray:2 2}
+.band{fill:var(--band)}
+.plbl{fill:var(--muted);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.85rem;color:var(--muted);margin:.8rem 0 0}
+.legend i{display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;border-radius:2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin:1.4rem 0}
+.stats div{border-left:3px solid var(--lake);padding-left:14px}
+.stats b{font-family:"Newsreader",Georgia,serif;font-size:1.7rem;font-weight:500;display:block;line-height:1.2}
+.stats span{color:var(--muted);font-size:.9rem}
+.comps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:1rem}
+.comp{background:var(--paper);border:1px solid var(--rule);padding:18px}
+.comp .meta{color:var(--muted);font-size:.85rem;margin:.3rem 0 .6rem}
+table.adj td{padding:6px 0;white-space:normal;font-size:.86rem}
+table.adj tfoot td{font-weight:600}
+table.adj td.n{white-space:nowrap;padding-left:12px}
+table.adj tr.tot td{border-bottom:none;font-family:"Newsreader",Georgia,serif;font-size:1.15rem;color:var(--lake)}
+.recon{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:20px}
+.recon div{background:var(--paper);padding:16px 18px}
+.recon b{font-family:"Newsreader",Georgia,serif;font-size:1.5rem;font-weight:500;display:block}
+.recon span{color:var(--muted);font-size:.88rem}
+.scen tr.pick td{background:var(--lake-soft);font-weight:600}
+.scen td{white-space:normal;min-width:110px}
+ol.timeline{list-style:none;padding:0;margin:1rem 0;border-left:2px solid var(--lake)}
+ol.timeline li{padding:0 0 16px 20px;position:relative}
+ol.timeline li::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--lake)}
+ol.timeline b{display:block}
+ul.plain{padding-left:1.1rem;max-width:72ch}
+ul.plain li{margin-bottom:.5rem}
+.note{font-size:.82rem;color:var(--muted);max-width:none}
+footer{border-top:1px solid var(--rule);padding-top:24px;font-size:.85rem;color:var(--muted)}
+@media (max-width:640px){.verdict{grid-template-columns:1fr}.verdict>div+div{border-left:none;border-top:1px solid var(--rule)}.wrap{padding:28px 16px 56px}}
+@media print{body{background:#fff}section{break-inside:avoid-page}.comp{break-inside:avoid}.chartbox svg{min-width:0}}
+</style></head>
+<body><div class="wrap">
+
+<header>
+ <div class="who"><span>Preparado por Rebeca Lima, Realtor®, Verandah Properties</span><span>Dados de 21 de setembro de 2026</span></div>
+ <h1>11410 Rapallo Lane</h1>
+ <p class="sub">Belmere Village, Windermere FL 34786. Análise de venda e estratégia de preço.</p>
+ <div class="verdict">
+  <div class="now"><div class="fig">634 dias</div><p>no mercado a US$ 745.000 (US$ 223 por pé²), após uma redução de US$ 780.000. Sem contrato.</p></div>
+  <div class="rec"><div class="fig">US$ 689.900</div><p>preço de anúncio recomendado. As casas em Belmere com preço de mercado entraram em contrato em uma mediana de 17 dias. Faixa de venda esperada: US$ 675.000 a US$ 690.000.</p></div>
+ </div>
+</header>
+
+<section>
+ <h2>O imóvel</h2>
+ <p class="lede">A maior casa deste grupo de comparação e a que tem mais banheiros. Dois quartos no térreo tornam a casa ideal para famílias multigeracionais.</p>
+ <div class="facts">
+  <div><b>6 quartos*</b><span>2 no térreo</span></div>
+  <div><b>5 banheiros e 1 lavabo</b><span>O maior número do grupo</span></div>
+  <div><b>3.336 pés²</b><span>Cerca de 310 m² climatizados, 4.058 pés² no total</span></div>
+  <div><b>0,17 acre</b><span>Terreno de 7.272 pés² (676 m²)</span></div>
+  <div><b>Construída em 2003</b><span>Blocos e estuque, telhado de telha</span></div>
+  <div><b>Garagem para 2 carros</b><span>Apenas piscina do condomínio</span></div>
+  <div><b>US$ 130 por mês</b><span>HOA, sem CDD</span></div>
+  <div><b>Desocupada</b><span>Contrato de listagem vence em 18/12/2026</span></div>
+ </div>
+ <p class="note">*A tabela de cômodos do MLS mostra cinco quartos mais uma sala bônus de 20x14 pés sem closet. Avaliadores e corretores de compradores normalmente só contam como quarto o cômodo com closet, então é importante confirmar o número de quartos antes de relançar o anúncio. O MLS também mostra o imposto de 2023 (US$ 8.434); recomenda-se atualizar para o valor de 2025.</p>
+</section>
+
+<section>
+ <h2>O mercado de Belmere nos últimos 180 dias</h2>
+ <p class="lede">Onze imóveis: 3 ativos (incluindo esta casa), 2 pendentes e 6 vendidos. As casas vendidas fecharam entre 95,3% e 104,4% do preço pedido, com média de 98,4%.</p>
+ <div class="scroll"><table>
+  <thead><tr><th>Status</th><th>Endereço</th><th>Quartos / Banh.</th><th class="n">Área (pés²)</th><th>Piscina</th><th class="n">Acres</th><th class="n">Preço pedido</th><th class="n">Vendido por</th><th class="n">US$/pé²</th><th class="n">Venda/Pedido</th><th class="n">Data da venda</th><th class="n">Dias no mercado</th></tr></thead>
+  <tbody><tr class="subj"><td><span class="st st-subject">Ativo</span></td><td class="addr">11410 Rapallo Ln<small>Imóvel analisado. Desocupado. Preço original US$ 780.000</small></td><td>6 / 5+1</td><td class="n">3.336</td><td>Não</td><td class="n">0,17</td><td class="n">US$ 745.000</td><td class="n"></td><td class="n">US$ 223</td><td class="n"></td><td class="n"></td><td class="n">634</td></tr>
+<tr class=""><td><span class="st st-active">Ativo</span></td><td class="addr">929 Lascala Dr<small>Vendedor institucional, melhores ofertas até 18/09</small></td><td>3 / 2+0</td><td class="n">1.852</td><td>Não</td><td class="n">0,15</td><td class="n">US$ 349.900</td><td class="n"></td><td class="n">US$ 189</td><td class="n"></td><td class="n"></td><td class="n">6</td></tr>
+<tr class=""><td><span class="st st-active">Ativo</span></td><td class="addr">910 Lascala Dr<small>Vista para a água, reformada, A/C novo. Original US$ 770.000</small></td><td>4 / 3+1</td><td class="n">2.742</td><td>Não</td><td class="n">0,14</td><td class="n">US$ 725.000</td><td class="n"></td><td class="n">US$ 264</td><td class="n"></td><td class="n"></td><td class="n">136</td></tr>
+<tr class=""><td><span class="st st-pending">Pendente</span></td><td class="addr">11854 Via Lucerna Cir<small>Loft, cozinha em granito</small></td><td>4 / 3+1</td><td class="n">2.837</td><td>Não</td><td class="n">0,15</td><td class="n">US$ 625.000</td><td class="n"></td><td class="n">US$ 220</td><td class="n"></td><td class="n"></td><td class="n">19</td></tr>
+<tr class=""><td><span class="st st-pending">Pendente</span></td><td class="addr">11773 Bella Milano Ct<small>Rua sem saída, área de preservação. Original US$ 649.500</small></td><td>5 / 3+1</td><td class="n">2.626</td><td>Não</td><td class="n">0,21</td><td class="n">US$ 629.900</td><td class="n"></td><td class="n">US$ 240</td><td class="n"></td><td class="n"></td><td class="n">53</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">11234 Rapallo Ln<small>À vista, 1 dia</small></td><td>4 / 2+1</td><td class="n">2.236</td><td>Não</td><td class="n">0,15</td><td class="n">US$ 520.000</td><td class="n">US$ 512.290</td><td class="n">US$ 229</td><td class="n">98,5%</td><td class="n">01/07/2026</td><td class="n">1</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">11531 Vicolo Loop<small>Telhado novo, crédito do vendedor de US$ 5.000</small></td><td>4 / 2+0</td><td class="n">2.280</td><td>Não</td><td class="n">0,20</td><td class="n">US$ 600.000</td><td class="n">US$ 575.000</td><td class="n">US$ 252</td><td class="n">95,8%</td><td class="n">05/05/2026</td><td class="n">35</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">918 Algare Loop<small>Short sale, várias ofertas</small></td><td>4 / 3+0</td><td class="n">2.553</td><td>Não</td><td class="n">0,27</td><td class="n">US$ 585.000</td><td class="n">US$ 611.000</td><td class="n">US$ 239</td><td class="n">104,4%</td><td class="n">18/06/2026</td><td class="n">6</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">11249 Rapallo Ln<small>Piscina + spa, vista para o lago, telhado novo</small></td><td>5 / 2+1</td><td class="n">2.366</td><td>Sim</td><td class="n">0,16</td><td class="n">US$ 750.000</td><td class="n">US$ 715.000</td><td class="n">US$ 302</td><td class="n">95,3%</td><td class="n">17/08/2026</td><td class="n">17</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">1028 Lascala Dr<small>Reformada, piscina à beira d'água</small></td><td>4 / 2+1</td><td class="n">2.208</td><td>Sim</td><td class="n">0,15</td><td class="n">US$ 749.000</td><td class="n">US$ 730.000</td><td class="n">US$ 331</td><td class="n">97,5%</td><td class="n">07/07/2026</td><td class="n">27</td></tr>
+<tr class=""><td><span class="st st-sold">Vendido</span></td><td class="addr">11434 Rapallo Ln<small>Piscina, suíte de hóspedes independente</small></td><td>5 / 4+1</td><td class="n">3.036</td><td>Sim</td><td class="n">0,38</td><td class="n">US$ 799.500</td><td class="n">US$ 789.500</td><td class="n">US$ 260</td><td class="n">98,7%</td><td class="n">04/09/2026</td><td class="n">17</td></tr></tbody></table></div>
+ <p class="note">Banheiros mostrados como completos + lavabos. O valor por pé² usa o preço de venda para as casas vendidas e o preço pedido para as demais. Dias no mercado são cumulativos (CDOM). A 929 Lascala Dr é um anúncio de vendedor institucional com preço baixo para atrair várias ofertas (o prazo para melhores ofertas foi 18/09) e foi excluída da avaliação.</p>
+</section>
+
+<section>
+ <h2>Dias no mercado: em quanto tempo deve vender</h2>
+ <p class="lede">O padrão é claro. Todas as casas vendidas em Belmere nos últimos seis meses entraram em contrato em até cinco semanas, e a maioria em cerca de duas semanas e meia. As que continuam paradas são as que estão com preço acima do que o mercado está pagando.</p>
+ <div class="stats">
+  <div><b>17 dias</b><span>Mediana e média de dias no mercado das 6 vendas</span></div>
+  <div><b>1 a 35 dias</b><span>Variação total das casas vendidas</span></div>
+  <div><b>23 dias</b><span>Mediana entre contrato e fechamento (excluindo o short sale)</span></div>
+  <div><b>98,0%</b><span>Mediana da relação entre preço de venda e preço pedido</span></div>
+ </div>
+ <div class="chartbox"><svg viewBox="0 0 720 374" role="img" aria-label="Dias acumulados no mercado por imóvel" class="chart"><line x1="190.0" y1="6" x2="190.0" y2="348" class="grid"/><text x="190.0" y="364" class="tick" text-anchor="middle">0</text><line x1="284.0" y1="6" x2="284.0" y2="348" class="grid"/><text x="284.0" y="364" class="tick" text-anchor="middle">30</text><line x1="378.0" y1="6" x2="378.0" y2="348" class="grid"/><text x="378.0" y="364" class="tick" text-anchor="middle">60</text><line x1="472.0" y1="6" x2="472.0" y2="348" class="grid"/><text x="472.0" y="364" class="tick" text-anchor="middle">90</text><line x1="566.0" y1="6" x2="566.0" y2="348" class="grid"/><text x="566.0" y="364" class="tick" text-anchor="middle">120</text><line x1="660.0" y1="6" x2="660.0" y2="348" class="grid"/><text x="660.0" y="364" class="tick" text-anchor="middle">150</text><text x="180" y="29" class="lbl" text-anchor="end">11234 Rapallo Ln</text><rect x="190" y="16" width="3.1" height="18" rx="2" class="bar b-sold"/><text x="199.1" y="29" class="val">1</text><text x="180" y="59" class="lbl" text-anchor="end">929 Lascala Dr</text><rect x="190" y="46" width="18.8" height="18" rx="2" class="bar b-active"/><text x="214.8" y="59" class="val">6</text><text x="180" y="89" class="lbl" text-anchor="end">918 Algare Loop</text><rect x="190" y="76" width="18.8" height="18" rx="2" class="bar b-sold"/><text x="214.8" y="89" class="val">6</text><text x="180" y="119" class="lbl" text-anchor="end">11249 Rapallo Ln</text><rect x="190" y="106" width="53.3" height="18" rx="2" class="bar b-sold"/><text x="249.3" y="119" class="val">17</text><text x="180" y="149" class="lbl" text-anchor="end">11434 Rapallo Ln</text><rect x="190" y="136" width="53.3" height="18" rx="2" class="bar b-sold"/><text x="249.3" y="149" class="val">17</text><text x="180" y="179" class="lbl" text-anchor="end">11854 Via Lucerna Cir</text><rect x="190" y="166" width="59.5" height="18" rx="2" class="bar b-pending"/><text x="255.5" y="179" class="val">19</text><text x="180" y="209" class="lbl" text-anchor="end">1028 Lascala Dr</text><rect x="190" y="196" width="84.6" height="18" rx="2" class="bar b-sold"/><text x="280.6" y="209" class="val">27</text><text x="180" y="239" class="lbl" text-anchor="end">11531 Vicolo Loop</text><rect x="190" y="226" width="109.7" height="18" rx="2" class="bar b-sold"/><text x="305.7" y="239" class="val">35</text><text x="180" y="269" class="lbl" text-anchor="end">11773 Bella Milano Ct</text><rect x="190" y="256" width="166.1" height="18" rx="2" class="bar b-pending"/><text x="362.1" y="269" class="val">53</text><text x="180" y="299" class="lbl" text-anchor="end">910 Lascala Dr</text><rect x="190" y="286" width="426.1" height="18" rx="2" class="bar b-active"/><text x="622.1" y="299" class="val">136</text><text x="180" y="329" class="lbl" text-anchor="end">11410 Rapallo Ln</text><rect x="190" y="316" width="470.0" height="18" rx="2" class="bar b-subject"/><path d="M630 313 l6 24 M637 313 l6 24" class="brk"/><text x="666" y="329" class="val strong">634</text><line x1="243.3" y1="6" x2="243.3" y2="348" class="med"/></svg>
+  <div class="legend"><span><i style="background:var(--sold)"></i>Vendido</span><span><i style="background:var(--pending)"></i>Pendente</span><span><i style="background:var(--active)"></i>Ativo</span><span><i style="background:var(--warn)"></i>11410 Rapallo</span><span><i style="background:var(--lake);height:3px;vertical-align:3px"></i>Mediana, 17 dias</span></div>
+ </div>
+ <h3>O que as mudanças de preço mostram</h3>
+ <ul class="plain">
+  <li><b>11773 Bella Milano Ct</b> reduziu de US$ 649.500 para US$ 629.900 (cerca de 3%) e entrou em contrato com 53 dias.</li>
+  <li><b>910 Lascala Dr</b> tem vista para a água, cozinha e banheiros reformados e dois aparelhos de A/C novos, mas está parada há 136 dias após reduzir de US$ 770.000 para US$ 725.000. Se aquela casa não vende a US$ 725.000, esta casa não vai vender a US$ 745.000.</li>
+  <li><b>918 Algare Loop</b> foi anunciada a US$ 585.000, recebeu várias ofertas em 6 dias e foi vendida por US$ 611.000 (104,4%). Um preço alinhado ao mercado gera concorrência, e a concorrência pode elevar o preço final.</li>
+ </ul>
+ <p><b>Projeção a US$ 689.900:</b> contrato em aproximadamente 14 a 30 dias e fechamento cerca de 30 a 45 dias depois, no caso de comprador com financiamento (mais rápido se for à vista). Esse cronograma permite fechar antes do vencimento do contrato de listagem, em 18 de dezembro de 2026.</p>
+</section>
+
+<section>
+ <h2>Onde esta casa se encaixa em tamanho e preço</h2>
+ <p class="lede">Os compradores em Belmere pagam um valor bem maior por piscina privativa. As três casas com piscina foram vendidas entre US$ 715.000 e US$ 789.500. As vendas sem piscina chegaram no máximo a US$ 611.000, e as duas casas sem piscina que estão pendentes foram anunciadas entre US$ 625.000 e US$ 630.000. A US$ 745.000, esta casa está com preço de casa com piscina, sem ter piscina.</p>
+ <div class="chartbox"><svg viewBox="0 0 720 420" role="img" aria-label="Preço versus área climatizada" class="chart"><line x1="78" y1="368.0" x2="696" y2="368.0" class="grid"/><text x="70" y="372.0" class="tick" text-anchor="end">US$ 300 mil</text><line x1="78" y1="304.4" x2="696" y2="304.4" class="grid"/><text x="70" y="308.4" class="tick" text-anchor="end">US$ 400 mil</text><line x1="78" y1="240.7" x2="696" y2="240.7" class="grid"/><text x="70" y="244.7" class="tick" text-anchor="end">US$ 500 mil</text><line x1="78" y1="177.1" x2="696" y2="177.1" class="grid"/><text x="70" y="181.1" class="tick" text-anchor="end">US$ 600 mil</text><line x1="78" y1="113.5" x2="696" y2="113.5" class="grid"/><text x="70" y="117.5" class="tick" text-anchor="end">US$ 700 mil</text><line x1="78" y1="49.8" x2="696" y2="49.8" class="grid"/><text x="70" y="53.8" class="tick" text-anchor="end">US$ 800 mil</text><text x="112.3" y="388" class="tick" text-anchor="middle">1.800</text><text x="215.3" y="388" class="tick" text-anchor="middle">2.100</text><text x="318.3" y="388" class="tick" text-anchor="middle">2.400</text><text x="421.3" y="388" class="tick" text-anchor="middle">2.700</text><text x="524.3" y="388" class="tick" text-anchor="middle">3.000</text><text x="627.3" y="388" class="tick" text-anchor="middle">3.300</text><text x="387.0" y="412" class="tick" text-anchor="middle">Área climatizada (pés²)</text><rect x="625.7" y="110.3" width="28" height="19.1" class="band"/><rect x="633.7" y="78.8" width="12" height="12" class="pt p-subject"/><text x="643.7" y="72.8" class="plbl strong" text-anchor="end">11410 Rapallo (hoje)</text><rect x="124.2" y="330.2" width="12" height="12" class="pt p-active"/><text x="140.2" y="340.2" class="plbl" text-anchor="start">929 Lascala</text><rect x="429.8" y="91.5" width="12" height="12" class="pt p-active"/><text x="425.8" y="87.5" class="plbl" text-anchor="end">910 Lascala</text><circle cx="468.4" cy="161.2" r="6" class="pt p-pending"/><text x="468.4" y="181.2" class="plbl" text-anchor="middle">11854 Via Lucerna</text><circle cx="395.9" cy="158.1" r="6" class="pt p-pending"/><text x="395.9" y="146.1" class="plbl" text-anchor="middle">11773 Bella Milano</text><circle cx="262.0" cy="232.9" r="6" class="pt p-sold"/><text x="272.0" y="236.9" class="plbl" text-anchor="start">11234 Rapallo</text><circle cx="277.1" cy="193.0" r="6" class="pt p-sold"/><text x="287.1" y="209.0" class="plbl" text-anchor="start">11531 Vicolo</text><circle cx="370.9" cy="170.1" r="6" class="pt p-sold"/><text x="360.9" y="188.1" class="plbl" text-anchor="end">918 Algare</text><circle cx="306.7" cy="103.9" r="10" class="poolring"/><circle cx="306.7" cy="103.9" r="6" class="pt p-sold"/><text x="316.7" y="95.9" class="plbl" text-anchor="start">11249 Rapallo</text><circle cx="252.4" cy="94.4" r="10" class="poolring"/><circle cx="252.4" cy="94.4" r="6" class="pt p-sold"/><text x="242.4" y="86.4" class="plbl" text-anchor="end">1028 Lascala</text><circle cx="536.7" cy="56.5" r="10" class="poolring"/><circle cx="536.7" cy="56.5" r="6" class="pt p-sold"/><text x="526.7" y="46.5" class="plbl" text-anchor="end">11434 Rapallo</text><circle cx="639.7" cy="119.9" r="7" class="pt p-rec"/><text x="627.7" y="123.9" class="plbl strong" text-anchor="end">Recomendado US$ 689.900</text></svg>
+  <div class="legend"><span><i style="background:var(--sold);border-radius:50%"></i>Vendido (preço de venda)</span><span><i style="background:var(--pending);border-radius:50%"></i>Pendente (preço pedido)</span><span><i style="background:var(--active)"></i>Ativo (preço pedido)</span><span><i style="background:var(--warn)"></i>11410 Rapallo hoje</span><span><i style="border:1.5px dashed var(--lake);border-radius:50%;background:none"></i>Piscina privativa</span><span><i style="background:var(--band)"></i>Faixa de valor sustentada</span></div>
+ </div>
+</section>
+
+<section>
+ <h2>Vendas comparáveis, ajustadas a esta casa</h2>
+ <p class="lede">Cada venda foi ajustada pelas diferenças em relação à 11410 Rapallo. Ajustes utilizados: US$ 60 por pé² de área climatizada, US$ 10.000 por banheiro completo e US$ 5.000 por lavabo, US$ 40.000 a US$ 50.000 por piscina privativa (mais alto com spa), e valores de mercado para vista para a água, terreno, reformas e itens especiais. Os créditos do vendedor foram descontados.</p>
+ <div class="comps"><div class="comp"><h4>11434 Rapallo Ln</h4><p class="meta">Vendido por US$ 789.500 em 04/09/2026. Financiamento VA, sem crédito.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">0</td></tr><tr><td>Área climatizada (3.036 pés²)</td><td class="n">+US$ 18.000</td></tr><tr><td>Banheiros (4 completos, 1 lavabo)</td><td class="n">+US$ 10.000</td></tr><tr><td>Piscina privativa</td><td class="n">&minus;US$ 40.000</td></tr><tr><td>Terreno (0,38 acre, rua sem saída)</td><td class="n">&minus;US$ 20.000</td></tr><tr><td>Suíte de hóspedes independente, A/C na garagem</td><td class="n">&minus;US$ 25.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">&minus;US$ 57.000</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 732.500</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 14%. Peso 30%.</p></div><div class="comp"><h4>11249 Rapallo Ln</h4><p class="meta">Vendido por US$ 715.000 em 17/08/2026. Financiamento convencional, crédito de US$ 1.000.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">&minus;US$ 1.000</td></tr><tr><td>Área climatizada (2.366 pés²)</td><td class="n">+US$ 58.200</td></tr><tr><td>Banheiros (2 completos, 1 lavabo)</td><td class="n">+US$ 30.000</td></tr><tr><td>Piscina com spa para 12 pessoas</td><td class="n">&minus;US$ 50.000</td></tr><tr><td>Vista para o lago</td><td class="n">&minus;US$ 15.000</td></tr><tr><td>Telhado novo 2025, sistemas da piscina 2024</td><td class="n">&minus;US$ 20.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">+US$ 2.200</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 717.200</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 24%. Peso 15%.</p></div><div class="comp"><h4>1028 Lascala Dr</h4><p class="meta">Vendido por US$ 730.000 em 07/07/2026. Financiamento convencional, sem crédito.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">0</td></tr><tr><td>Área climatizada (2.208 pés²)</td><td class="n">+US$ 67.680</td></tr><tr><td>Banheiros (2 completos, 1 lavabo)</td><td class="n">+US$ 30.000</td></tr><tr><td>Piscina com spa</td><td class="n">&minus;US$ 50.000</td></tr><tr><td>Beira d'água</td><td class="n">&minus;US$ 25.000</td></tr><tr><td>Cozinha reformada</td><td class="n">&minus;US$ 25.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">&minus;US$ 2.320</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 727.680</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 27%. Peso 10%.</p></div><div class="comp"><h4>918 Algare Loop</h4><p class="meta">Vendido por US$ 611.000 em 18/06/2026. Short sale, 104% do preço pedido.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">0</td></tr><tr><td>Área climatizada (2.553 pés²)</td><td class="n">+US$ 46.980</td></tr><tr><td>Banheiros (3 completos)</td><td class="n">+US$ 25.000</td></tr><tr><td>Garagem para 3 carros</td><td class="n">&minus;US$ 10.000</td></tr><tr><td>Terreno (0,27 acre, esquina)</td><td class="n">&minus;US$ 10.000</td></tr><tr><td>Lareira, energia solar</td><td class="n">&minus;US$ 5.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">+US$ 46.980</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 657.980</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 16%. Peso 20%.</p></div><div class="comp"><h4>11531 Vicolo Loop</h4><p class="meta">Vendido por US$ 575.000 em 05/05/2026. À vista, crédito de US$ 5.000.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">&minus;US$ 5.000</td></tr><tr><td>Área climatizada (2.280 pés²)</td><td class="n">+US$ 63.360</td></tr><tr><td>Banheiros (2 completos)</td><td class="n">+US$ 35.000</td></tr><tr><td>Telhado, pintura e carpete novos</td><td class="n">&minus;US$ 15.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">+US$ 78.360</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 653.360</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 21%. Peso 15%.</p></div><div class="comp"><h4>11234 Rapallo Ln</h4><p class="meta">Vendido por US$ 512.290 em 01/07/2026. À vista, 1 dia no mercado.</p>
+<table class="adj"><tbody><tr><td>Concessões</td><td class="n">0</td></tr><tr><td>Área climatizada (2.236 pés²)</td><td class="n">+US$ 66.000</td></tr><tr><td>Banheiros (2 completos, 1 lavabo)</td><td class="n">+US$ 30.000</td></tr></tbody><tfoot><tr><td>Ajuste líquido</td><td class="n">+US$ 96.000</td></tr><tr class="tot"><td>Valor ajustado</td><td class="n">US$ 608.290</td></tr></tfoot></table>
+<p class="meta">Ajuste bruto de 19%. Peso 10%.</p></div></div>
+ <div class="recon">
+  <div><b>US$ 690.527</b><span>Valor ajustado ponderado. A 11434 Rapallo tem o maior peso por ser a mais parecida em tamanho, a mais recente e ficar na mesma rua.</span></div>
+  <div><b>US$ 687.590</b><span>Mediana dos valores ajustados das seis vendas</span></div>
+  <div><b>US$ 673.000 a US$ 675.000</b><span>Indicação ajustada das duas casas pendentes sem piscina (preços pedidos, antes da negociação)</span></div>
+  <div><b>US$ 690.000</b><span>Valor de mercado conciliado, com faixa sustentada de US$ 675.000 a US$ 705.000</span></div>
+ </div>
+ <p class="note">A maioria dos comparáveis exige ajustes maiores por ter de 500 a 1.100 pés² a menos que esta casa. Por isso a 11434 Rapallo, a mais próxima em tamanho, tem o maior peso. A 11234 Rapallo foi vendida em um dia, à vista, e pode ter saído abaixo do valor de mercado, por isso tem o menor peso.</p>
+</section>
+
+<section>
+ <h2>Cenários de preço</h2>
+ <div class="scroll"><table class="scen">
+  <thead><tr><th>Preço de anúncio</th><th class="n">US$/pé²</th><th>Posicionamento</th><th>Prazo esperado até o contrato</th><th>Preço de venda provável</th></tr></thead>
+  <tbody>
+   <tr><td>US$ 745.000 (atual)</td><td class="n">US$ 223</td><td>Acima de todas as vendas sem piscina e concorrendo com casas com piscina</td><td>Improvável antes do vencimento em 18/12</td><td>Venda não esperada neste preço</td></tr>
+   <tr><td>US$ 709.900</td><td class="n">US$ 213</td><td>Ainda acima do valor da 910 Lascala e próximo das casas com piscina</td><td>60 a 120+ dias, provável nova redução</td><td>US$ 685.000 a US$ 695.000</td></tr>
+   <tr class="pick"><td>US$ 689.900 (recomendado)</td><td class="n">US$ 207</td><td>Abaixo do filtro de busca de US$ 700 mil, no valor de mercado, mais espaço por dólar em Belmere</td><td>14 a 30 dias</td><td>US$ 675.000 a US$ 690.000</td></tr>
+   <tr><td>US$ 669.900</td><td class="n">US$ 201</td><td>Abaixo do mercado, pensado para atrair várias ofertas</td><td>7 a 14 dias</td><td>US$ 675.000 a US$ 695.000 se houver disputa</td></tr>
+  </tbody></table></div>
+</section>
+
+<section>
+ <h2>Plano de relançamento</h2>
+ <ol class="timeline">
+  <li><b>Esta semana</b>Confirmar o número de quartos, atualizar os impostos e ajustar o preço para US$ 689.900. Como a casa está desocupada, renovar as fotos e considerar home staging virtual, que dois dos anúncios atuais em Belmere estão usando.</li>
+  <li><b>Dias 1 a 14</b>Divulgar como a maior casa do grupo, a cerca de US$ 207 por pé²: 5 banheiros e lavabo, dois quartos no térreo para a família estendida, sala bônus de 20x14 pés e o jardim no pátio com fonte.</li>
+  <li><b>Revisão no dia 14</b>Se houver muitas visitas mas nenhuma oferta, manter o preço. Se houver poucas visitas, ajustar para US$ 674.900 a US$ 679.900.</li>
+  <li><b>Contrato até meados ou final de outubro</b>Fechamento cerca de 30 a 45 dias depois, antes do vencimento do contrato de listagem em 18 de dezembro.</li>
+ </ol>
+ <p class="note">Como os dias acumulados no mercado (634) acompanham o anúncio, vale consultar o broker sobre as regras do Stellar MLS antes de decidir se retirar e relançar o anúncio zeraria a contagem. De qualquer forma, o preço é o fator principal.</p>
+</section>
+
+<footer>
+ <p>Preparado por Rebeca Lima, Realtor®, Verandah Properties. 407-800-5654. becky.orlandohomes@gmail.com</p>
+ <p>Esta é uma opinião de valor e análise comparativa de mercado, não uma avaliação formal (appraisal), e não foi preparada segundo o Uniform Standards of Professional Appraisal Practice. Dados do Stellar MLS em 21/09/2026, considerados confiáveis mas não garantidos. Os ajustes são estimativas baseadas no comportamento do mercado local.</p>
+</footer>
+</div></body></html>
